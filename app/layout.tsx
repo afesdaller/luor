@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playpen_Sans, Great_Vibes } from "next/font/google";
 import "./globals.css";
-import NavMenu from "./NavMenu";
+import MobileNavMenu from "./MobileNavMenu";
+import Header from "./Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const tenorSans = Playpen_Sans({
+  variable: "--font-tenor-sans",
   subsets: ["latin"],
+  weight: "400",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full antialiased`}>
+    <html lang="en" className={`${tenorSans.variable} ${greatVibes.variable} h-full antialiased`}>
       <body>
-        <NavMenu />
-        <main>{children}</main>
+        <Header />
+        <MobileNavMenu />
+        <main className="mt-16 sm:mt-25">{children}</main>
       </body>
     </html>
   );

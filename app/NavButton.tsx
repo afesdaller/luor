@@ -4,19 +4,28 @@ interface Props {
   icon: React.ReactNode;
   href: string;
   active?: boolean;
+  isMobile?: boolean;
+  title?: string;
 }
 
-export default function NavButton({ icon, href, active }: Props) {
+export default function NavButton({ icon, href, active, isMobile, title }: Props) {
   return (
     <Link
       href={href}
-      className={`relative flex h-12 w-12 items-center justify-center transition-all duration-300 active:scale-90 ${
+      className={`group text-outline relative flex transform-gpu flex-col items-center justify-center antialiased transition-all duration-300 backface-hidden ${
         active
-          ? "text-foreground/50 scale-110 drop-shadow-[0_0_2px_rgba(192,132,252,1)] [&_svg]:!fill-purple-300/50"
-          : "text-foreground/50 hover:text-zinc-700"
-      }`}
+          ? `text-background [&_svg]:fill-background/60 scale-110 font-bold`
+          : `text-background/60 hover:text-background hover:[&_svg]:fill-background/60 hover:scale-110 hover:font-bold`
+      } `}
     >
       {icon}
+      {!isMobile && title && (
+        <p
+          className={`${active ? "text-background" : "text-background/80 group-hover:text-background"}`}
+        >
+          {title}
+        </p>
+      )}
     </Link>
   );
 }
