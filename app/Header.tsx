@@ -31,7 +31,7 @@ export default function Header() {
           />
         </div>
         <Link href="/" className="shrink-0">
-          <LogoIcon className="text-background h-12 w-12 min-w-12 drop-shadow-[2px_2px_2px_rgba(5,74,95,0.6)] sm:h-15 sm:w-15" />
+          <LogoIcon className="text-foreground h-12 w-12 min-w-12 drop-shadow-[2px_2px_2px_rgba(5,74,95,0.6)] sm:h-15 sm:w-15" />
         </Link>
         <div className="hidden flex-1 justify-start gap-6 sm:flex">
           <NavButton

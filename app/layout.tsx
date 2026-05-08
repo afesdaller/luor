@@ -3,6 +3,7 @@ import { Playpen_Sans, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import MobileNavMenu from "./MobileNavMenu";
 import Header from "./Header";
+import Script from "next/script";
 
 const tenorSans = Playpen_Sans({
   variable: "--font-tenor-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${tenorSans.variable} ${greatVibes.variable} h-full antialiased`}>
       <body>
+        <Script src="https://telegram.org/js/telegram-widget.js?22" strategy="afterInteractive" />
         <Header />
         <MobileNavMenu />
         <main className="mt-16 sm:mt-25">{children}</main>
