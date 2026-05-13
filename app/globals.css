@@ -2,16 +2,25 @@
 
 :root {
   --background: rgb(224, 242, 254);
+  /* --background: rgb(141, 128, 176); */
   --foreground: rgb(255, 242, 224);
+  /* --foreground: rgb(183, 103, 106); */
+  /* --logo-color: rgb(227, 197, 175); */
+  --logo-color: rgb(229, 228, 226);
   --shadow-purple: rgb(255, 224, 254);
-  --shadow-light-blue: rgb(224, 255, 251);
+  --light-green: rgb(224, 255, 226);
+  --shadow-gray: rgb(71, 71, 71);
+  --dark-blue: rgb(2, 13, 41);
 }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-logo-color: var(--logo-color);
   --color-shadow-purple: var(--shadow-purple);
-  --color-shadow-light-blue: var(--shadow-light-blue);
+  --color-light-green: var(--light-green);
+  --color-shadow-gray: var(--shadow-gray);
+  --color-dark-blue: var(--dark-blue);
   --font-tenor-sans: var(--font-tenor-sans);
 }
 
@@ -20,22 +29,27 @@
 }
 
 @utility text-shadow {
-  filter: drop-shadow(1px 1px 1px rgba(71, 71, 71, 0.5));
+  filter: drop-shadow(2px 2px 2px #000);
+}
+
+@utility avatar {
+  border: 1px solid color-mix(in srgb, var(--foreground), transparent 50%);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--shadow-gray), transparent 30%);
 }
 
 @utility glass-background {
-  background-color: rgba(224, 242, 254, 0.4);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 10px color-mix(in srgb, var(--foreground), transparent 60%);
-  border: 1px solid color-mix(in srgb, var(--foreground), transparent 40%);
+  background-color: color-mix(in srgb, var(--dark-blue), transparent 95%);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--logo-color), transparent 70%);
+  border: 1px solid color-mix(in srgb, var(--logo-color), transparent 70%);
   border-radius: 3.125rem;
 }
 
 @utility header {
-  background-color: rgba(224, 242, 254, 0.4);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 10px color-mix(in srgb, var(--foreground), transparent 60%);
-  border-bottom: 1px solid color-mix(in srgb, var(--foreground), transparent 40%);
+  background-color: color-mix(in srgb, var(--dark-blue), transparent 95%);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--logo-color), transparent 70%);
+  border-bottom: 1px solid color-mix(in srgb, var(--logo-color), transparent 70%);
   border-bottom-left-radius: 3.125rem;
   border-bottom-right-radius: 3.125rem;
 }
@@ -48,21 +62,23 @@ body::before {
   width: 100%;
   height: 100%;
 
-  background-image: url(/background/bg-mobile.webp);
+  background-image: url(/background/background.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  filter: blur(8px);
-  transform: scale(1.1);
-  z-index: -1;
+  z-index: -2;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   background-color: var(--background);
-  color: var(--background);
-  font-family: var(--font-tenor-sans), sans-serif;
-  font-size: 0.875rem;
+  color: var(--foreground);
+  font-family: var(--font-cormorant-infant), sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 h1 {
@@ -83,11 +99,11 @@ h4 {
 
 @media (min-width: 40rem) {
   body::before {
-    background-image: url(/background/bg-desktop.webp);
+    background-image: url(/background/background.webp);
   }
 
   body {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
   .mobile-nav-menu {
     display: none;
@@ -107,5 +123,34 @@ h4 {
 
   h4 {
     font-size: 1.25rem;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 8s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+
+@keyframes pulse-scale {
+  0%,
+  30%,
+  100% {
+    transform: scale(1);
+  }
+  20%,
+  50% {
+    transform: scale(1.1);
   }
 }

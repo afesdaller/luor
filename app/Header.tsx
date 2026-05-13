@@ -30,8 +30,9 @@ export default function Header() {
             title="Профіль"
           />
         </div>
-        <Link href="/" className="shrink-0">
-          <LogoIcon className="text-foreground h-12 w-12 min-w-12 drop-shadow-[2px_2px_2px_rgba(5,74,95,0.6)] sm:h-15 sm:w-15" />
+        <Link href="/" className="flex shrink-0 flex-col items-center">
+          <LogoIcon className="text-logo-color h-8 w-8 min-w-12 drop-shadow-[1px_1px_1px_rgba(5,74,95,0.7)] sm:h-12 sm:w-12" />
+          <p className="text-shadow text-logo-color">Luor</p>
         </Link>
         <div className="hidden flex-1 justify-start gap-6 sm:flex">
           <NavButton

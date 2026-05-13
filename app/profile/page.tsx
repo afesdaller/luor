@@ -1,9 +1,7 @@
-import Enter from "./Enter";
+import { getMe } from "@/api/services/auth.server";
+import ProfileWrapper from "./ProfileWrapper";
 
 export default function ProfilePage() {
-  return (
-    <div className="flex flex-col items-center">
-      <Enter />
-    </div>
-  );
+  // const user = await getMe();
+  return <ProfileWrapper user={null} />;
 }
