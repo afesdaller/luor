@@ -1,0 +1,24 @@
+{
+  "NavMenu": {
+    "home": "Головна",
+    "catalog": "Каталог",
+    "favorites": "Обране",
+    "basket": "Кошик",
+    "profile": "Профіль",
+    "jewels": "Прикраси",
+    "candles": "Свічки",
+    "box-gifts": "Подарункові бокси"
+  },
+  "Header": {
+    "search": "Пошук",
+    "greetings": "Вітаємо у Luor!"
+  },
+  "Profile": {
+    "Enter": {
+      "title": "Дозволь собі сяяти більше",
+      "description": "Авторизуйся, щоб накопичувати бонуси з кожною покупкою",
+      "button": "Увійти через Telegram"
+    },
+    "logout": "Вийти"
+  }
+}

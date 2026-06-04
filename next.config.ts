@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["192.168.50.143"],
+  allowedDevOrigins: ["192.168.0.7"],
   images: {
     remotePatterns: [new URL("https://t.me/**")],
   },
@@ -15,4 +16,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin("./lib/i18n/request.ts");
+export default withNextIntl(nextConfig);

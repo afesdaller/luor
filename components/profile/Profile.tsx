@@ -1,12 +1,12 @@
 "use client";
 import { authService } from "@/api/services/auth.service";
-import { AuthUser } from "@/api/types";
-import { useAuthStore } from "@/utils/zustand/auth.store";
+import { User } from "@/api/types";
+import { useAuthStore } from "@/lib/zustand/auth.store";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface Props {
-  user: AuthUser;
+  user: User;
 }
 export default function Profile({ user }: Props) {
   const authStore = useAuthStore();
@@ -19,7 +19,7 @@ export default function Profile({ user }: Props) {
   }
 
   return (
-    <div className="glass-background flex w-full flex-col items-center gap-5 p-4">
+    <div className="flex w-full flex-col items-center gap-5 p-4">
       {user.avatar ? (
         <Image
           src={user.avatar}

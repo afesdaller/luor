@@ -1,19 +1,19 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
-import { AuthUser, SessionRole } from "@/api/types";
+import { Role, User } from "@/api/types";
 import Enter from "./Enter";
 import Profile from "./Profile";
 
 interface Props {
-  user?: AuthUser | null;
+  user?: User | null;
 }
 
 export default function ProfileWrapper({ user }: Props) {
-  const isAuthorized = user && user.sessionRole !== SessionRole.GUEST;
+  const isAuthorized = user && user.role !== Role.GUEST;
 
   return (
     <div className="relative w-full overflow-x-hidden pb-4">
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence>
         {isAuthorized ? (
           <motion.div
             key="profile"
@@ -28,9 +28,9 @@ export default function ProfileWrapper({ user }: Props) {
         ) : (
           <motion.div
             key="enter"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.5, y: -100 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 100 }}
             transition={{ duration: 0.4, ease: "circOut" }}
             className="w-full"
           >

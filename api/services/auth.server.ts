@@ -2,9 +2,9 @@ import "server-only";
 import { cache } from "react";
 import { cookies } from "next/headers";
 import { authService } from "./auth.service";
-import { AuthUser } from "../types";
+import { User } from "../types";
 
-export const getMe = cache(async (): Promise<AuthUser | null> => {
+export const getMe = cache(async (): Promise<User | null> => {
   const cookieStore = await cookies();
   const sessionCookie = cookieStore.get("luor_session");
   if (!sessionCookie) {

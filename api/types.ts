@@ -10,7 +10,8 @@ export interface TelegramUser {
 
 export interface User {
   id: string;
-  role: Role[];
+  guestId?: string;
+  role: Role;
   firstName?: string;
   lastName?: string;
   telegramId?: number;
@@ -22,17 +23,9 @@ export interface User {
   birthday?: Date;
 }
 
-export interface AuthUser extends User {
-  sessionRole: SessionRole;
-}
-
 export enum Role {
   ADMIN = "ADMIN",
-  USER = "USER",
-  GUEST = "GUEST",
-}
-
-export enum SessionRole {
+  MANAGER = "MANAGER",
   USER = "USER",
   GUEST = "GUEST",
 }

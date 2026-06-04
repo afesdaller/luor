@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root {
+  --background-brown: rgb(70, 52, 38);
+  --coffee: rgb(28, 17, 12);
+  --dark-coffee: rgb(23, 14, 10);
+  --light-yellow: rgb(255, 250, 205);
+  --light-blue: rgb(224, 242, 254);
+  --lavender-silver: #d2d2e0;
+  --light-purple: rgb(255, 224, 254);
+  --light-green: rgb(207, 255, 211);
+  --light-red: rgb(255, 224, 224);
+  --peach: rgb(255, 203, 163);
+  --shadow-gray: rgb(71, 71, 71);
+  --dark-blue: rgb(29, 34, 38);
+  --mist-gray: #d1d5db;
+  --dusty-silver: #bfc1c2;
+  --carbon-black: rgb(26, 26, 26);
+  --creamy: #eaddca;
+  --light-creamy: #eee3d2;
+  --light-lavender: rgb(177, 163, 207);
+  --lavender: rgb(124, 87, 145);
+  --purple: rgb(63, 26, 87);
+  --pink: rgb(232, 64, 144);
+}
+
+@theme {
+  --color-background-brown: var(--background-brown);
+  --color-light-blue: var(--light-blue);
+  --color-light-yellow: var(--light-yellow);
+  --color-lavender-silver: var(--lavender-silver);
+  --color-light-purple: var(--light-purple);
+  --color-light-green: var(--light-green);
+  --color-peach: var(--peach);
+  --color-shadow-gray: var(--shadow-gray);
+  --color-dark-blue: var(--dark-blue);
+  --color-mist-gray: var(--mist-gray);
+  --color-dusty-silver: var(--dusty-silver);
+  --color-carbon-black: var(--carbon-black);
+  --color-coffee: var(--coffee);
+  --color-dark-coffee: var(--dark-coffee);
+  --color-creamy: var(--creamy);
+  --color-light-creamy: var(--light-creamy);
+  --color-light-lavender: var(--light-lavender);
+  --color-lavender: var(--lavender);
+  --color-purple: var(--purple);
+  --color-pink: var(--pink);
+
+  --font-kurale: var(--font-kurale);
+  --font-cormorant-infant: var(--font-cormorant-infant);
+  --font-caveat: var(--font-caveat);
+  --font-tenor-sans: var(--font-tenor-sans);
+  --font-montserrat: var(--font-montserrat);
+}
+
+body {
+  background-color: var(--light-blue);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--light-blue);
+  font-family: var(--font-cormorant-infant), sans-serif;
+  font-size: 0.875rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+@media (min-width: 40rem) {
+  body {
+    font-size: 1rem;
+  }
+  .mobile-nav-menu {
+    display: none;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+
+@keyframes pulse-scale {
+  0%,
+  30%,
+  100% {
+    transform: scale(1);
+  }
+  20%,
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-flame {
+  animation: flame-flicker 1.5s linear infinite;
+  transform-origin: 50% 95%;
+  transform-box: fill-box;
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    transform: scale(1) rotate(-1.5deg) skewX(-1deg);
+    opacity: 0.9;
+  }
+  20% {
+    transform: scale(1.04, 0.94) rotate(1deg) skewX(1deg);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.94, 1.02) rotate(-1deg) skewX(-0.5deg);
+    opacity: 0.86;
+  }
+  60% {
+    transform: scale(1.04, 0.88) rotate(2deg) skewX(1.5deg);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.95, 1.01) rotate(-2deg) skewX(-1.5deg);
+    opacity: 0.88;
+  }
+}
