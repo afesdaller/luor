@@ -26,22 +26,29 @@ export default function SearchBar() {
     }
   };
 
+  const handleSearchClick = (e: React.MouseEvent) => {
+    if (!query.trim()) {
+      e.preventDefault();
+      inputRef.current?.focus();
+    }
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
-      className={`group bg-coffee/10 relative flex h-9 items-center rounded-full border backdrop-blur-md transition-all duration-300 ease-out sm:h-10 ${
-        isFocused
-          ? "border-peach/85 w-48 shadow-[0_0_15px_rgba(255,203,163,0.15)] sm:w-64"
-          : "border-light-blue w-36 sm:w-48"
+      className={`group bg-coffee/10 border-light-blue relative flex h-9 items-center rounded-full border backdrop-blur-md transition-all duration-300 ease-out sm:h-10 ${
+        isFocused ? "w-48 shadow-[2px_2px_6px_rgba(28,17,12,0.8)] sm:w-64" : "w-36 sm:w-48"
       }`}
     >
       {/* Search Icon */}
       <button
         type="submit"
-        className="text-shadow-light-blue hover:text-peach group-hover:text-light-blue/70 group-focus-within:text-peach flex cursor-pointer items-center justify-center pl-3 transition-colors duration-300"
+        onClick={handleSearchClick}
+        onMouseDown={(e) => e.preventDefault()}
+        className="text-shadow-light-blue group-focus-within:text-coffee flex cursor-pointer items-center justify-center pl-3 transition-colors duration-100"
         aria-label={tHeader("search")}
       >
-        <Search className="size-4 stroke-[1.5] transition-transform duration-300 group-focus-within:scale-110 sm:size-5" />
+        <Search className="size-4 stroke-[1.5] transition-transform duration-300 group-focus-within:scale-110 group-focus-within:drop-shadow-[1px_1px_1px_rgba(28,17,12,0.8)] hover:drop-shadow-[1px_1px_1px_rgba(28,17,12,0.8)] sm:size-5" />
       </button>
 
       {/* Input Field */}
@@ -53,7 +60,7 @@ export default function SearchBar() {
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={tHeader("search")}
-        className="text-light-blue placeholder-light-blue/30 font-montserrat h-full w-full bg-transparent px-2.5 text-xs font-light focus:outline-none sm:text-sm"
+        className="text-coffee placeholder-coffee/50 h-full w-full bg-transparent px-2.5 text-lg focus:outline-none sm:text-xl"
       />
 
       {/* Clear Button */}
@@ -61,7 +68,8 @@ export default function SearchBar() {
         <button
           type="button"
           onClick={handleClear}
-          className="text-light-blue/40 hover:text-peach flex items-center justify-center pr-3 transition-colors duration-200"
+          onMouseDown={(e) => e.preventDefault()}
+          className="text-coffee/40 hover:text-cofee flex items-center justify-center pr-3 transition-colors duration-200"
           aria-label="Clear search"
         >
           <X className="size-3.5 stroke-[1.5] sm:size-4" />

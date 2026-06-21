@@ -54,11 +54,11 @@
 }
 
 body {
-  background-color: var(--light-blue);
+  background-color: var(--creamy);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: var(--light-blue);
+  color: var(--coffee);
   font-family: var(--font-cormorant-infant), sans-serif;
   font-size: 0.875rem;
 }

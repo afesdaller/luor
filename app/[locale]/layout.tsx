@@ -8,6 +8,7 @@ import { getMessages } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Background from "@/components/layout/Background";
 import MobileNavMenu from "@/components/layout/MobileNavMenu";
+import ProfileModal from "@/components/profile/ProfileModal";
 
 const cormorantInfant = Cormorant_Infant({
   variable: "--font-cormorant-infant",
@@ -65,6 +66,7 @@ export default async function RootLayout({
           <Header />
           <MobileNavMenu />
           <main className="z-10">{children}</main>
+          <ProfileModal />
         </NextIntlClientProvider>
       </body>
     </html>
